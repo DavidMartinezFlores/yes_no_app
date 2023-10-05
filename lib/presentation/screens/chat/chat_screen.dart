@@ -42,7 +42,8 @@ class _ChatView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return (index % 2 ==0) ? const MyMessageBubble():const HerMessageBubble();
                 },
-              ),),
+              ),
+              ),
               const MessageFieldBox(),
           ],
         ),
