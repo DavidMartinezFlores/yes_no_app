@@ -38,8 +38,17 @@ class _ImageBubble extends StatelessWidget {
         child: Image.network(
           'https://yesno.wtf/assets/yes/5-64c2804cc48057b94fd0b3eaf323d92c.gif',
           scale: 1.0,
-          width: size.width*0.7,
+          width: size.width * 0.7,
           fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Container(
+              width: size.width*0.7,
+              height: 150,
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+              child: const Text("Campanilla esta enviando una imagen"),
+            );
+          },
         ));
   }
 }
