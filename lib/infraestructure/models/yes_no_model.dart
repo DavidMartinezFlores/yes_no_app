@@ -33,8 +33,8 @@ class YesNoModel {
         "forced": forced,
         "image": image,
       };
-  Message toMessageEntity() => Message(
-      text: answer == 'yes' ? 'Si' : 'No',
-      fromWho: FromWho.hers,
-      imageUrl: image);
+
+  Message toMessage() {
+    return Message(text: answer, fromWho: FromWho.hers, imageUrl: image);
+  }
 }

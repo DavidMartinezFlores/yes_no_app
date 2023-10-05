@@ -22,7 +22,7 @@ class HerMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        _ImageBubble(imageUrl: message.imageUrl),
+        _ImageBubble(message.imageUrl ?? 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'),
         const SizedBox(height: 10)
       ],
     );
@@ -30,8 +30,8 @@ class HerMessageBubble extends StatelessWidget {
 }
 
 class _ImageBubble extends StatelessWidget {
-  final String? imageUrl;
-  const _ImageBubble({required this.imageUrl});
+  final String imageUrl;
+  const _ImageBubble(this.imageUrl);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _ImageBubble extends StatelessWidget {
               width: size.width * 0.7,
               height: 150,
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              child: const Text("Campanilla esta enviando una imagen"),
+              child: Image.network('https://media.istockphoto.com/id/1335247217/es/vector/icono-de-carga-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=i9qJ38s9DGBXJmqESf4OTjuALxC-KEf3wHpVBNGfric='),
             );
           },
         ));
