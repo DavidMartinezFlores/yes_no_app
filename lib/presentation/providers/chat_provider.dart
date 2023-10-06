@@ -18,7 +18,7 @@ class ChatProvider extends ChangeNotifier {
     messageList.add(newMessage);
 
     if (text.endsWith("?")) {
-       await herReplay();
+      await herReplay();
     }
     // if (text[text.length-1]=='?') {
     //   await herReplay();
@@ -31,8 +31,8 @@ class ChatProvider extends ChangeNotifier {
   Future<void> herReplay() async {
     final herMessage = await yesNoAnswer.getAnswer();
     messageList.add(herMessage);
-    notifyListeners();
-    moveScrollToBottom();
+    // notifyListeners();
+    // moveScrollToBottom();
   }
 
   void moveScrollToBottom() async {
@@ -42,5 +42,10 @@ class ChatProvider extends ChangeNotifier {
         chatScrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 100),
         curve: Curves.easeOut);
+  }
+
+  void refresh() {
+    notifyListeners();
+    moveScrollToBottom();
   }
 }

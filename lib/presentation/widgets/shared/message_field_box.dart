@@ -36,20 +36,21 @@ class MessageFieldBox extends StatelessWidget {
         ));
 
     return TextFormField(
-      onTapOutside: (event) {
-        focusNode.unfocus();
-      },
-      controller: textController,
-      decoration: inputDecoration,
-      onFieldSubmitted: (value) {
-        chatProvider.sendMessage(value);
-        //onValue(value);
-        textController.clear();
-        focusNode.requestFocus();
-      },
-      // onChanged: (value) {
-      //   print('changed: $value');
-      // },
-    );
+        onTapOutside: (event) {
+          focusNode.unfocus();
+        },
+        controller: textController,
+        decoration: inputDecoration,
+        onFieldSubmitted: (value) {
+          chatProvider.sendMessage(value);
+          //onValue(value);
+          textController.clear();
+          focusNode.requestFocus();
+        },
+        // onChanged: (value) {
+        //   chatProvider.moveScrollToBottom();
+        // },
+        onTap: chatProvider.refresh
+        );
   }
 }
